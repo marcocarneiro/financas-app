@@ -53,4 +53,10 @@ class MovimentoController extends Controller
         Fin_movimento::findOrFail($request->id)->update($request->all());
 	    return redirect('/dashboard');
     }
+
+    public function destroy($id)
+    {
+        Fin_movimento::findOrFail($id)->delete();
+        return redirect('/dashboard');
+    }
 }

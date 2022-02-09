@@ -35,3 +35,6 @@ Route::middleware(['auth:sanctum', 'verified'])
 Route::middleware(['auth:sanctum', 'verified'])
 ->put('/updatemovimento/{id}', [MovimentoController::class, 'updatemovimento'])->name('updatemovimento');
 
+Route::middleware(['auth:sanctum', 'verified'])
+->delete('/deletar/{id}', [MovimentoController::class, 'destroy'])->name('deletar');
+

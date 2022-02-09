@@ -58,7 +58,13 @@
                             <div class="card-footer">
                                 <strong>R$ {{$receita->valor}}</strong>  &nbsp; &nbsp;
                                 <a href="{{route('editar',[$receita->id])}}" ><i class="fas fa-edit"></i></a> &nbsp; &nbsp;
-                                <a href="#" ><i class="fas fa-trash-alt"></i></a>
+                                <form action="{{route('deletar',[$receita->id])}}" method="POST" class="d-inline">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-link" 
+                                    onclick="if (!confirm('Tem certeza que deseja excluir este movimento?')) { return false }">
+                                    <i class="fas fa-trash-alt"></i></button>
+                                </form>                           
                             </div>
                         </div>
                     @endforeach
@@ -85,7 +91,13 @@
                             <div class="card-footer">
                                 <strong>R$ {{$despesa->valor}}</strong>  &nbsp; &nbsp;
                                 <a href="{{route('editar',[$despesa->id])}}" ><i class="fas fa-edit"></i></a> &nbsp; &nbsp;
-                                <a href="#" ><i class="fas fa-trash-alt"></i></a>
+                                <form action="{{route('deletar',[$despesa->id])}}" method="POST" class="d-inline">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-link" 
+                                    onclick="if (!confirm('Tem certeza que deseja excluir este movimento?')) { return false }">
+                                    <i class="fas fa-trash-alt"></i></button>
+                                </form>
                             </div>
                         </div>
                     @endforeach
