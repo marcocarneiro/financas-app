@@ -59,4 +59,12 @@ class MovimentoController extends Controller
         Fin_movimento::findOrFail($id)->delete();
         return redirect('/dashboard');
     }
+
+    public function testeJoin()
+    {
+        $movimentos = Fin_movimento::join('users', 'users.id', '=', 'fin_movimentos.user_id')
+                ->get(['fin_movimentos.*', 'users.name']);
+        
+        return view ('teste', ['movimentos' => $movimentos]);
+    }
 }

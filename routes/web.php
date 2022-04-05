@@ -38,3 +38,5 @@ Route::middleware(['auth:sanctum', 'verified'])
 Route::middleware(['auth:sanctum', 'verified'])
 ->delete('/deletar/{id}', [MovimentoController::class, 'destroy'])->name('deletar');
 
+Route::middleware(['auth:sanctum', 'verified'])
+->get('teste', [MovimentoController::class, 'testeJoin'])->name('teste');
