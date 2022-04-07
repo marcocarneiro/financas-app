@@ -20,6 +20,7 @@ class CreateFinMovimentosTable extends Migration
             $table->text('descricao');
             $table->string('tipo');
             $table->date('data');
+            $table->text('imagem')->nullable();
         });
     }
 

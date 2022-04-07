@@ -19,6 +19,18 @@ class MovimentoController extends Controller
         $user = auth()->user();
         $movimento->user_id= $user->id;
 
+        //upload de imagens
+        if($request->hasfile('imagem') && $request->file('imagem')->isValid())
+        {
+            $requestImage = $request->imagem;	
+            $extensao = $requestImage->extension();
+            //nome do arquivo inicia com nome do usuário
+            $nomeImagem = $user->name . md5($requestImage->getClientOriginalName()) . '.' . $extensao;
+
+            $request->imagem->move(public_path('imagens'), $nomeImagem);
+            $movimento->imagem = $nomeImagem;
+        }
+
         $movimento->save();
         return redirect('dashboard');
     }

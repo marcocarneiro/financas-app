@@ -39,13 +39,20 @@
                 <h3 class="panel-title text-secondary"><strong>Suas Finanças - Incluir movimento </strong></h3>
             </div>
             <div class="panel-body">
-                <form id="frm-novo-movimento" action="novomovimento" method="POST">
+                <form id="frm-novo-movimento" action="novomovimento" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label for="movimento">Movimento</label>
                         <input type="text" class="form-control" id="descricao" name="descricao" placeholder="Descrição" required>
                     </div>
                     
+                    <br>
+
+                    <div class="form-group">
+                        <label for="movimento">Escolha uma imagem</label>
+                        <input type="file" class="form-control" id="imagem" name="imagem">
+                    </div>
+
                     <br>
 
                     <div class="form-check form-check-inline">

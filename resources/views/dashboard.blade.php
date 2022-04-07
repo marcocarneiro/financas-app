@@ -53,6 +53,7 @@
                                 {{ \Carbon\Carbon::parse($receita->data)->format('d/m/Y')}}
                             </div>
                             <div class="card-body">
+                                <img src="imagens/{{$receita->imagem}}" width="70%"><br>
                                 {{$receita->descricao}}
                             </div>
                             <div class="card-footer">
